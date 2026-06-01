@@ -188,11 +188,21 @@ function initMobileMenu() {
     });
 }
 
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     renderPacotes();
     renderServicosAdicionais();
     initMobileMenu();
+    initHeaderScroll();
 });
 
 function renderPacotes() {
