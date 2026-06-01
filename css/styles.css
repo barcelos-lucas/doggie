@@ -259,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--text-primary) !important;
+    color: var(--gray-900) !important;
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 500;
@@ -651,7 +651,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(200, 90, 84, 0.35) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.72) 0%, rgba(30, 15, 10, 0.65) 100%);
 }
 
 .hero::before {
@@ -665,7 +665,7 @@ a:hover {
     background-position: center 60%;
     background-size: 110%;
     background-attachment: fixed;
-    filter: blur(3px);
+    filter: blur(6px);
     z-index: -1;
 }
 
