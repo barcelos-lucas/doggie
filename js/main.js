@@ -1,34 +1,27 @@
-// Service Data
-const servicos = [
-    // Tosa Máquina
-    { id: 'tosa-maquina-pequeno', porte: 'Pequeno', servico: 'Tosa Máquina', preco: 'R$ 110,00', whatsappMsg: 'Quero agendar Tosa Máquina - Porte Pequeno' },
-    { id: 'tosa-maquina-medio', porte: 'Médio', servico: 'Tosa Máquina', preco: 'R$ 140,00', whatsappMsg: 'Quero agendar Tosa Máquina - Porte Médio' },
-    { id: 'tosa-maquina-grande', porte: 'Grande', servico: 'Tosa Máquina', preco: 'R$ 180,00', whatsappMsg: 'Quero agendar Tosa Máquina - Porte Grande' },
+// Main Services by Size
+const servicosPorTamanho = {
+    'Pequeno': [
+        { nome: 'Tosa Máquina', preco: 'R$ 110,00', msg: 'Quero agendar Tosa Máquina - Porte Pequeno' },
+        { nome: 'Tosa Tesoura/Bebê', preco: 'R$ 140,00', msg: 'Quero agendar Tosa Tesoura/Bebê - Porte Pequeno' },
+        { nome: 'Trimming', preco: 'R$ 140,00', msg: 'Quero agendar Trimming - Porte Pequeno' }
+    ],
+    'Médio': [
+        { nome: 'Tosa Máquina', preco: 'R$ 140,00', msg: 'Quero agendar Tosa Máquina - Porte Médio' },
+        { nome: 'Tosa Tesoura/Bebê', preco: 'R$ 190,00', msg: 'Quero agendar Tosa Tesoura/Bebê - Porte Médio' },
+        { nome: 'Trimming', preco: 'R$ 210,00', msg: 'Quero agendar Trimming - Porte Médio' }
+    ],
+    'Grande': [
+        { nome: 'Tosa Máquina', preco: 'R$ 180,00', msg: 'Quero agendar Tosa Máquina - Porte Grande' },
+        { nome: 'Tosa Tesoura/Bebê', preco: 'R$ 250,00', msg: 'Quero agendar Tosa Tesoura/Bebê - Porte Grande' },
+        { nome: 'Trimming', preco: 'R$ 350,00', msg: 'Quero agendar Trimming - Porte Grande' }
+    ]
+};
 
-    // Tosa Tesoura/Bebê
-    { id: 'tosa-tesoura-pequeno', porte: 'Pequeno', servico: 'Tosa Tesoura/Bebê', preco: 'R$ 140,00', whatsappMsg: 'Quero agendar Tosa Tesoura/Bebê - Porte Pequeno' },
-    { id: 'tosa-tesoura-medio', porte: 'Médio', servico: 'Tosa Tesoura/Bebê', preco: 'R$ 190,00', whatsappMsg: 'Quero agendar Tosa Tesoura/Bebê - Porte Médio' },
-    { id: 'tosa-tesoura-grande', porte: 'Grande', servico: 'Tosa Tesoura/Bebê', preco: 'R$ 250,00', whatsappMsg: 'Quero agendar Tosa Tesoura/Bebê - Porte Grande' },
-
-    // Trimming
-    { id: 'trimming-pequeno', porte: 'Pequeno', servico: 'Trimming', preco: 'R$ 140,00', whatsappMsg: 'Quero agendar Trimming - Porte Pequeno' },
-    { id: 'trimming-medio', porte: 'Médio', servico: 'Trimming', preco: 'R$ 210,00', whatsappMsg: 'Quero agendar Trimming - Porte Médio' },
-    { id: 'trimming-grande', porte: 'Grande', servico: 'Trimming', preco: 'R$ 350,00', whatsappMsg: 'Quero agendar Trimming - Porte Grande' },
-
-    // Hidratação
-    { id: 'hidratacao-pequeno', porte: 'Pequeno', servico: 'Hidratação', preco: 'R$ 20,00', whatsappMsg: 'Quero agendar Hidratação - Porte Pequeno' },
-    { id: 'hidratacao-medio', porte: 'Médio', servico: 'Hidratação', preco: 'R$ 30,00', whatsappMsg: 'Quero agendar Hidratação - Porte Médio' },
-    { id: 'hidratacao-grande', porte: 'Grande', servico: 'Hidratação', preco: 'R$ 40,00', whatsappMsg: 'Quero agendar Hidratação - Porte Grande' },
-
-    // Remoção de Pelos Mortos
-    { id: 'remocao-pequeno', porte: 'Pequeno', servico: 'Remoção de Pelos Mortos', preco: 'R$ 30,00', whatsappMsg: 'Quero agendar Remoção de Pelos Mortos - Porte Pequeno' },
-    { id: 'remocao-medio', porte: 'Médio', servico: 'Remoção de Pelos Mortos', preco: 'R$ 40,00', whatsappMsg: 'Quero agendar Remoção de Pelos Mortos - Porte Médio' },
-    { id: 'remocao-grande', porte: 'Grande', servico: 'Remoção de Pelos Mortos', preco: 'R$ 50,00', whatsappMsg: 'Quero agendar Remoção de Pelos Mortos - Porte Grande' },
-
-    // Desembolo
-    { id: 'desembolo-pequeno', porte: 'Pequeno', servico: 'Desembolo', preco: 'R$ 15,00', whatsappMsg: 'Quero agendar Desembolo - Porte Pequeno' },
-    { id: 'desembolo-medio', porte: 'Médio', servico: 'Desembolo', preco: 'R$ 15,00', whatsappMsg: 'Quero agendar Desembolo - Porte Médio' },
-    { id: 'desembolo-grande', porte: 'Grande', servico: 'Desembolo', preco: 'R$ 15,00', whatsappMsg: 'Quero agendar Desembolo - Porte Grande' },
+// Additional Services
+const servicosAdicionais = [
+    { nome: 'Hidratação', preco: 'R$ 20,00 - R$ 40,00', msg: 'Quero agendar Hidratação' },
+    { nome: 'Remoção de Pelos Mortos', preco: 'R$ 30,00 - R$ 50,00', msg: 'Quero agendar Remoção de Pelos Mortos' },
+    { nome: 'Desembolo', preco: 'R$ 15,00', msg: 'Quero agendar Desembolo' }
 ];
 
 const WHATSAPP_PHONE = '5519999791812';
@@ -41,20 +34,46 @@ function getWhatsAppUrl(msg) {
     return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeWhatsAppMessage(msg)}`;
 }
 
-function renderServicos() {
-    const grid = document.getElementById('servicosGrid');
+function renderServicosMainGrid() {
+    const grid = document.getElementById('servicosMainGrid');
     if (!grid) return;
 
-    grid.innerHTML = servicos.map(s => `
-        <a href="${getWhatsAppUrl(s.whatsappMsg)}"
+    grid.innerHTML = Object.keys(servicosPorTamanho).map(tamanho => {
+        const servicos = servicosPorTamanho[tamanho];
+        return `
+            <div class="tamanho-card">
+                <h3 class="tamanho-title">Porte ${tamanho}</h3>
+                <div class="tamanho-services">
+                    ${servicos.map(s => `
+                        <div class="service-item">
+                            <span class="service-name">${s.nome}</span>
+                            <span class="service-price">${s.preco}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <a href="${getWhatsAppUrl(servicosPorTamanho[tamanho][0].msg)}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="tamanho-btn">
+                    Agendar
+                </a>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderServicosAdicionais() {
+    const grid = document.getElementById('servicosAdicionalGrid');
+    if (!grid) return;
+
+    grid.innerHTML = servicosAdicionais.map(s => `
+        <a href="${getWhatsAppUrl(s.msg)}"
            target="_blank"
            rel="noopener noreferrer"
-           class="servico-card"
-           data-id="${s.id}">
-            <div class="servico-porte">${s.porte}</div>
-            <div class="servico-nome">${s.servico}</div>
-            <div class="servico-preco">${s.preco}</div>
-            <div class="servico-btn">
+           class="servico-adicional-card">
+            <div class="servico-adicional-nome">${s.nome}</div>
+            <div class="servico-adicional-preco">${s.preco}</div>
+            <div class="servico-adicional-btn">
                 Agendar
             </div>
         </a>
@@ -67,7 +86,6 @@ function setupMobileMenu() {
     const navMenu = document.getElementById('navMenu');
 
     if (!navToggle) return;
-    if (!navMenu) return;
 
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
@@ -83,6 +101,7 @@ function setupMobileMenu() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    renderServicos();
+    renderServicosMainGrid();
+    renderServicosAdicionais();
     setupMobileMenu();
 });

@@ -1,18 +1,20 @@
-/* Design System - Color Palette from Logo */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Design System */
 :root {
-    /* Primary Colors (from logo) */
-    --primary: #c85a54;        /* Red/Pink from logo */
+    /* Primary Colors */
+    --primary: #c85a54;
     --primary-light: #d97966;
     --primary-dark: #a84644;
 
     /* Neutrals */
     --white: #ffffff;
-    --gray-50: #f9f8f7;
-    --gray-100: #f3f1ef;
-    --gray-200: #e8e5e2;
-    --gray-300: #d4cfc8;
-    --gray-500: #8b8680;
-    --gray-700: #5c5a57;
+    --gray-50: #faf9f8;
+    --gray-100: #f5f3f0;
+    --gray-200: #ede9e5;
+    --gray-300: #e0dbd4;
+    --gray-500: #9a9289;
+    --gray-700: #6b6460;
     --gray-900: #2a2825;
 
     /* Accents */
@@ -21,7 +23,7 @@
     --success: #27ae60;
     --whatsapp: #25d366;
 
-    /* Spacing (8px base unit) */
+    /* Spacing */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -30,24 +32,25 @@
     --spacing-2xl: 48px;
     --spacing-3xl: 64px;
 
-    /* Typography */
-    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Typography - Modern */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
     --font-size-sm: 14px;
     --font-size-base: 16px;
     --font-size-lg: 18px;
     --font-size-xl: 20px;
     --font-size-2xl: 24px;
     --font-size-3xl: 32px;
-    --font-size-4xl: 40px;
+    --font-size-4xl: 48px;
 
     --line-height-tight: 1.2;
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.75;
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.15);
 
     /* Radius */
     --radius-sm: 4px;
@@ -58,10 +61,8 @@
     /* Z-index */
     --z-nav: 100;
     --z-floating: 999;
-    --z-modal: 1000;
 }
 
-/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -73,7 +74,7 @@ html {
 }
 
 body {
-    font-family: var(--font-base);
+    font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
     color: var(--gray-900);
@@ -82,6 +83,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
     font-weight: 700;
     line-height: var(--line-height-tight);
     color: var(--gray-900);
@@ -95,10 +97,20 @@ h2 {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-lg);
     text-align: center;
+    color: var(--primary);
 }
 
 h3 {
     font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary);
 }
 
 p {
@@ -109,6 +121,7 @@ p {
 a {
     color: var(--primary);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
@@ -196,6 +209,7 @@ a:hover {
     font-size: 24px;
     cursor: pointer;
     color: var(--gray-700);
+    transition: color 0.3s ease;
 }
 
 .nav-toggle:focus-visible {
@@ -208,18 +222,21 @@ a:hover {
     background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
     padding: var(--spacing-3xl) var(--spacing-md);
     text-align: center;
+    animation: fadeInDown 0.8s ease;
 }
 
 .hero-title {
     color: var(--primary);
     margin-bottom: var(--spacing-lg);
     font-size: var(--font-size-4xl);
+    font-family: var(--font-display);
 }
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
     color: var(--gray-700);
     margin-bottom: var(--spacing-md);
+    font-weight: 500;
 }
 
 .hero-description {
@@ -230,6 +247,7 @@ a:hover {
 
 .hero .btn {
     margin-top: var(--spacing-lg);
+    animation: slideUp 0.8s ease 0.2s both;
 }
 
 /* Sobre Section */
@@ -242,19 +260,40 @@ a:hover {
     max-width: 800px;
     margin: 0 auto;
     padding: var(--spacing-2xl) 0;
+    animation: fadeIn 0.8s ease 0.3s both;
+}
+
+.sobre-text h3 {
+    color: var(--primary);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 .sobre-text p {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--gray-700);
 }
 
-.tagline {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
+.values-list {
+    list-style: none;
+    margin: var(--spacing-lg) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.values-list li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: var(--gray-700);
+}
+
+.values-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
     color: var(--primary);
-    margin-bottom: var(--spacing-lg);
+    font-weight: bold;
 }
 
 /* Serviços Section */
@@ -263,14 +302,102 @@ a:hover {
     background-color: var(--gray-50);
 }
 
+.servicos-subtitle {
+    font-size: var(--font-size-2xl);
+    color: var(--gray-700);
+    margin: var(--spacing-2xl) 0 var(--spacing-lg);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Main Services Grid - Consolidated by Size */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-3xl);
 }
 
-.servico-card {
+/* Size Card */
+.tamanho-card {
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    animation: slideUp 0.6s ease;
+}
+
+.tamanho-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tamanho-title {
+    font-size: var(--font-size-2xl);
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-display);
+    text-align: center;
+}
+
+.tamanho-services {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.service-item {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-name {
+    font-weight: 500;
+    color: var(--gray-900);
+}
+
+.service-price {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: var(--font-size-lg);
+}
+
+.tamanho-btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: var(--spacing-md);
+    font-family: var(--font-body);
+}
+
+.tamanho-btn:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Additional Services Grid */
+.servicos-adicional {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.servico-adicional-card {
     background-color: var(--white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
@@ -281,30 +408,22 @@ a:hover {
     text-decoration: none;
     color: var(--gray-900);
     cursor: pointer;
+    animation: slideUp 0.6s ease;
 }
 
-.servico-card:hover {
-    transform: translateY(-4px);
+.servico-adicional-card:hover {
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
 }
 
-.servico-porte {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: var(--spacing-sm);
-}
-
-.servico-nome {
+.servico-adicional-nome {
     font-size: var(--font-size-lg);
     font-weight: 600;
     color: var(--gray-900);
     margin-bottom: var(--spacing-md);
 }
 
-.servico-preco {
+.servico-adicional-preco {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--primary);
@@ -312,7 +431,7 @@ a:hover {
     flex-grow: 1;
 }
 
-.servico-btn {
+.servico-adicional-btn {
     background-color: var(--primary);
     color: var(--white);
     border: none;
@@ -323,9 +442,10 @@ a:hover {
     transition: all 0.3s ease;
     text-decoration: none;
     text-align: center;
+    font-family: var(--font-body);
 }
 
-.servico-btn:hover {
+.servico-adicional-btn:hover {
     background-color: var(--primary-dark);
     transform: scale(1.05);
 }
@@ -394,7 +514,8 @@ a:hover {
     transition: all 0.3s ease;
     z-index: var(--z-floating);
     text-decoration: none;
-    gap: var(--spacing-xs);
+    gap: 4px;
+    animation: scaleIn 0.6s ease 0.5s both;
 }
 
 .whatsapp-float:hover {
@@ -410,9 +531,51 @@ a:hover {
     font-size: 10px;
 }
 
-/* Responsive Design - Mobile First */
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Header */
     .nav-menu {
         display: none;
         position: absolute;
@@ -444,7 +607,6 @@ a:hover {
         display: block;
     }
 
-    /* Hero */
     .hero {
         padding: var(--spacing-2xl) var(--spacing-md);
     }
@@ -457,28 +619,25 @@ a:hover {
         font-size: var(--font-size-lg);
     }
 
-    /* Sobre */
     .sobre {
         padding: var(--spacing-2xl) var(--spacing-md);
     }
 
-    .sobre-text p {
-        font-size: var(--font-size-base);
-    }
-
-    /* Serviços Grid - 1 column on mobile */
     .servicos-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
 
-    /* Footer */
+    .servicos-adicional {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
 
-    /* Floating Button */
     .whatsapp-float {
         width: 56px;
         height: 56px;
@@ -491,7 +650,7 @@ a:hover {
     }
 
     .hero-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-2xl);
     }
 
     h2 {
