@@ -64,9 +64,20 @@
     --whatsapp: #25d366;
 }
 
+[data-theme="dark"] {
+    --bg-primary: #1a1816;
+    --bg-secondary: #2a2825;
+    --bg-tertiary: #3a3735;
+    --text-primary: #f5f3f0;
+    --text-secondary: #d4cfc8;
+    --text-tertiary: #9a9289;
+
+    --card-bg: #2a2825;
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 @media (prefers-color-scheme: dark) {
-    :root {
-        /* Dark theme */
+    :root:not([data-theme="light"]) {
         --bg-primary: #1a1816;
         --bg-secondary: #2a2825;
         --bg-tertiary: #3a3735;
