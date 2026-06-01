@@ -18,6 +18,15 @@
     --accent-green: #2e7d3e;
     --accent-red: #d32f2f;
 
+    /* Gray scale (light theme) */
+    --gray-50: #fafaf9;
+    --gray-100: #f5f3f0;
+    --gray-200: #e7e5e0;
+    --gray-300: #d9d6cf;
+    --gray-500: #9a9289;
+    --gray-700: #6b6460;
+    --gray-900: #2a2825;
+
     --font-display: 'Fredoka', sans-serif;
     --font-body: 'Outfit', sans-serif;
 
@@ -74,6 +83,15 @@
 
     --card-bg: #2a2825;
     --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+    /* Gray scale (dark theme) */
+    --gray-50: #2a2825;
+    --gray-100: #3a3735;
+    --gray-200: #4a4743;
+    --gray-300: #5a574d;
+    --gray-500: #9a9289;
+    --gray-700: #d4cfc8;
+    --gray-900: #f5f3f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -117,24 +135,23 @@ h1, h2, h3, h4, h5, h6 {
     top: var(--spacing-lg);
     right: var(--spacing-lg);
     z-index: 90;
-    background-color: var(--card-bg);
-    border: 2px solid var(--primary);
-    border-radius: var(--spacing-xl);
-    width: 60px;
-    height: 60px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 22px;
     transition: all 0.3s ease;
-    box-shadow: var(--card-shadow);
+    box-shadow: none;
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1);
-    background-color: var(--primary);
-    color: var(--white);
+    transform: rotate(20deg) scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(200, 90, 84, 0.2));
 }
 
 h1 {
@@ -212,10 +229,11 @@ a:hover {
 .header {
     position: sticky;
     top: 0;
-    background-color: var(--white);
-    border-bottom: 1px solid var(--gray-200);
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(200, 90, 84, 0.05) 100%);
+    border-bottom: 2px solid var(--primary);
     z-index: var(--z-nav);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(10px);
 }
 
 .header .container {
@@ -267,30 +285,51 @@ a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     padding: var(--spacing-3xl) var(--spacing-md);
     text-align: center;
     animation: fadeInDown 0.8s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .hero-title {
-    color: var(--primary);
+    color: var(--white);
     margin-bottom: var(--spacing-lg);
     font-size: var(--font-size-4xl);
     font-family: var(--font-display);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
-    color: var(--gray-700);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--spacing-md);
     font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-description {
     font-size: var(--font-size-lg);
-    color: var(--gray-500);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
 }
 
 .hero .btn {
@@ -301,7 +340,10 @@ a:hover {
 /* Sobre Section */
 .sobre {
     padding: var(--spacing-3xl) var(--spacing-md);
-    background-color: var(--white);
+    background-color: var(--bg-primary);
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(200, 90, 84, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(46, 125, 62, 0.03) 0%, transparent 40%);
 }
 
 .sobre-content {
@@ -347,7 +389,11 @@ a:hover {
 /* Serviços Section */
 .servicos {
     padding: var(--spacing-3xl) var(--spacing-md);
-    background-color: var(--gray-50);
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background-image:
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
+        radial-gradient(circle at 0% 100%, rgba(200, 90, 84, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 100% 0%, rgba(46, 125, 62, 0.05) 0%, transparent 40%);
 }
 
 .servicos-subtitle {
@@ -547,10 +593,10 @@ a:hover {
     position: fixed;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
-    background-color: var(--whatsapp);
+    background: linear-gradient(135deg, #25d366 0%, #128c3d 100%);
     color: var(--white);
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -558,25 +604,28 @@ a:hover {
     flex-direction: column;
     font-weight: 600;
     font-size: var(--font-size-sm);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
     transition: all 0.3s ease;
     z-index: var(--z-floating);
     text-decoration: none;
-    gap: 4px;
-    animation: scaleIn 0.6s ease 0.5s both;
+    gap: 0;
+    animation: bounce 0.6s ease 0.5s both;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: var(--whatsapp);
+    transform: scale(1.15) translateY(-4px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-icon {
-    font-size: 24px;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .whatsapp-text {
-    font-size: 10px;
+    display: none;
 }
 
 /* Animations */
@@ -619,6 +668,15 @@ a:hover {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
     }
 }
 
@@ -876,8 +934,9 @@ body::before {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(circle at 20% 30%, rgba(200, 90, 84, 0.03) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(200, 90, 84, 0.03) 0%, transparent 30%);
+        radial-gradient(circle at 20% 30%, rgba(200, 90, 84, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(46, 125, 62, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
