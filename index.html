@@ -54,19 +54,32 @@
             </div>
             <nav class="nav">
                 <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-                <ul class="nav-menu" id="navMenu">
+                <ul class="nav-menu">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#footer">Contato</a></li>
-                    <li class="nav-menu-theme-toggle">
-                        <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Alternar tema">🌙</button>
-                    </li>
                 </ul>
                 <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <aside class="sidebar-menu" id="sidebarMenu">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">✕</button>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#footer">Contato</a></li>
+                <li class="sidebar-theme-toggle">
+                    <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Alternar tema">🌙</button>
+                </li>
+            </ul>
+        </nav>
+    </aside>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -141,7 +154,8 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating Action Buttons -->
+    <button class="theme-toggle-float" id="themeToggleFloat" aria-label="Alternar tema">🌙</button>
     <a href="https://wa.me/5519999791812?text=Oi%20tia%20bia%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20servi%C3%A7o"
        target="_blank"
        rel="noopener noreferrer"
