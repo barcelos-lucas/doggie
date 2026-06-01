@@ -134,4 +134,66 @@ function initThemeToggle() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initThemeToggle);
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggle();
+    renderPacotes();
+    renderServicosAdicionais();
+});
+
+function renderPacotes() {
+    const container = document.getElementById('pacotesContainer');
+    if (!container) return;
+
+    container.innerHTML = tamanhos.map(tamanho => `
+        <div class="tamanho-pacote-card">
+            <h3 class="tamanho-title">${tamanho.titulo}</h3>
+
+            <table class="pacote-comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Banhos/Mês</th>
+                        <th>Valor/Banho</th>
+                        <th>Tosa Higiênica</th>
+                        <th>Valor Total</th>
+                        <th>Economia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${tamanho.packages.map(pkg => `
+                        <tr class="${pkg.economia ? 'package-row' : 'avulso-row'}">
+                            <td class="package-name"><strong>${pkg.nome}</strong></td>
+                            <td>${pkg.banhosNoMes}</td>
+                            <td>R$ ${pkg.precoBanho.toFixed(2)}</td>
+                            <td>${pkg.tosaHigienica ? '✓' : '—'}</td>
+                            <td class="price-highlight">R$ ${pkg.precoTotal.toFixed(2)}</td>
+                            <td class="economia-cell">
+                                ${pkg.economiaMsg ? `<span class="economia-badge">${pkg.economiaMsg}</span>` : '—'}
+                            </td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+
+            <button class="agendar-btn" onclick="window.open('${getWhatsAppUrl(`Quero agendar um serviço para ${tamanho.titulo}`)}', '_blank')">
+                Agendar Agora
+            </button>
+        </div>
+    `).join('');
+}
+
+function renderServicosAdicionais() {
+    const grid = document.getElementById('servicosAdicionalGrid');
+    if (!grid) return;
+
+    grid.innerHTML = servicosAdicionais.map(s => `
+        <a href="${getWhatsAppUrl(s.msg)}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="servico-adicional-card">
+            <h4>${s.nome}</h4>
+            <p class="preco">${s.preco}</p>
+            <div class="btn-small">Agendar</div>
+        </a>
+    `).join('');
+}

@@ -713,3 +713,175 @@ a:hover {
         padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
     }
 }
+
+.tamanho-pacote-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.tamanho-pacote-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.tamanho-title {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-display);
+}
+
+.pacote-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-2xl);
+    font-size: 14px;
+}
+
+.pacote-comparison-table th {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+.pacote-comparison-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.avulso-row {
+    background-color: var(--bg-secondary);
+}
+
+.package-row {
+    background-color: transparent;
+}
+
+.package-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.price-highlight {
+    font-weight: 700;
+    color: var(--accent-red);
+    font-size: 16px;
+}
+
+.economia-cell {
+    text-align: center;
+}
+
+.economia-badge {
+    background-color: var(--accent-green);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.agendar-btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-lg);
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-body);
+}
+
+.agendar-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.servicos-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--spacing-3xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.servicos-adicional {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.servico-adicional-card {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.servico-adicional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.servico-adicional-card h4 {
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.servico-adicional-card .preco {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin: 0;
+}
+
+.btn-small {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.servico-adicional-card:hover .btn-small {
+    background-color: var(--primary-dark);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(200, 90, 84, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(200, 90, 84, 0.03) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.header, .hero, .sobre, .servicos, .footer {
+    position: relative;
+    z-index: 1;
+}
