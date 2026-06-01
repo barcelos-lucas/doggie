@@ -542,39 +542,62 @@ a:hover {
     box-shadow: 0 12px 28px rgba(212, 184, 150, 0.5);
 }
 
-/* Header */
+/* Header — glass over hero, solid on scroll */
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(200, 90, 84, 0.05) 100%);
-    border-bottom: 2px solid var(--primary);
     z-index: var(--z-nav);
-    box-shadow: var(--card-shadow);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(0px);
     width: 100%;
-    transition: padding 0.35s ease, box-shadow 0.35s ease;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease,
+                border-color 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease;
 }
 
+/* Glass phase — over hero */
+.header:not(.scrolled) .nav-menu a {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.header:not(.scrolled) .nav-toggle span {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Solid phase — after scroll */
 .header.scrolled {
-    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    background: var(--card-bg);
+    border-bottom: 2px solid var(--primary);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.header.scrolled .nav-menu a {
+    color: var(--gray-700);
+    text-shadow: none;
+}
+
+.header.scrolled .nav-toggle span {
+    background-color: var(--text-primary);
 }
 
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
     transition: padding 0.35s ease;
 }
 
 .header.scrolled .container {
-    padding: 6px var(--spacing-md);
+    padding: 8px var(--spacing-md);
 }
 
 .header.scrolled .logo-img {
-    height: 48px;
+    height: 46px;
 }
 
 .header.scrolled .nav-menu a {
@@ -616,14 +639,14 @@ a:hover {
     outline-offset: 2px;
 }
 
-/* Hero Section */
+/* Hero Section — starts at very top, behind glass header */
 .hero {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: calc(var(--spacing-3xl) * 2) var(--spacing-md) var(--spacing-3xl);
     text-align: center;
     animation: fadeInDown 0.8s ease;
     position: relative;
     overflow: hidden;
-    min-height: 500px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1086,8 +1109,8 @@ a:hover {
     }
 
     .hero {
-        padding: var(--spacing-2xl) var(--spacing-md);
-        min-height: 350px;
+        padding: calc(80px + var(--spacing-2xl)) var(--spacing-md) var(--spacing-2xl);
+        min-height: 100svh;
     }
 
     .hero::before {
