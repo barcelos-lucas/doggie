@@ -103,8 +103,14 @@ function setTheme(theme) {
 
 function updateThemeToggleIcon(theme) {
     const toggle = document.getElementById('themeToggle');
+    const toggleMobile = document.getElementById('themeToggleMobile');
+    const icon = theme === 'dark' ? '☀️' : '🌙';
+
     if (toggle) {
-        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        toggle.textContent = icon;
+    }
+    if (toggleMobile) {
+        toggleMobile.textContent = icon;
     }
 }
 
@@ -114,13 +120,20 @@ function initThemeToggle() {
 
     setTheme(theme);
 
+    const toggleTheme = () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    };
+
     const toggle = document.getElementById('themeToggle');
+    const toggleMobile = document.getElementById('themeToggleMobile');
+
     if (toggle) {
-        toggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        });
+        toggle.addEventListener('click', toggleTheme);
+    }
+    if (toggleMobile) {
+        toggleMobile.addEventListener('click', toggleTheme);
     }
 
     // Listen for system theme changes
@@ -138,7 +151,6 @@ function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
 
-    let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -147,7 +159,24 @@ function initHeaderScroll() {
         } else {
             header.classList.remove('scrolled');
         }
-        lastScrollTop = scrollTop;
+    });
+}
+
+function initMobileMenu() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when link clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
     });
 }
 
@@ -156,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPacotes();
     renderServicosAdicionais();
     initHeaderScroll();
+    initMobileMenu();
 });
 
 function renderPacotes() {
@@ -166,6 +196,7 @@ function renderPacotes() {
         <div class="tamanho-pacote-card">
             <h3 class="tamanho-title">${tamanho.titulo}</h3>
 
+            <div class="table-wrapper">
             <table class="pacote-comparison-table">
                 <thead>
                     <tr>
@@ -192,6 +223,7 @@ function renderPacotes() {
                     `).join('')}
                 </tbody>
             </table>
+            </div>
 
             <button class="agendar-btn" onclick="window.open('${getWhatsAppUrl(`Quero agendar um serviço para ${tamanho.titulo}`)}', '_blank')">
                 Agendar Agora
