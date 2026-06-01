@@ -134,10 +134,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .theme-toggle {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    left: var(--spacing-lg);
-    z-index: 85;
     background-color: transparent;
     border: none;
     border-radius: 50%;
@@ -157,6 +153,12 @@ h1, h2, h3, h4, h5, h6 {
     transform: rotate(20deg) scale(1.15);
     filter: drop-shadow(0 2px 6px rgba(200, 90, 84, 0.25));
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        display: none;
+    }
 }
 
 .theme-toggle-mobile {
@@ -410,11 +412,12 @@ a:hover {
     animation: slideUp 0.8s ease 0.2s both;
     position: relative;
     z-index: 2;
+    display: inline-block;
 }
 
 /* Sobre Section */
 .sobre {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-md);
     background-color: var(--bg-primary);
     background-image:
         radial-gradient(circle at 15% 20%, rgba(200, 90, 84, 0.05) 0%, transparent 40%),
@@ -463,7 +466,7 @@ a:hover {
 
 /* Serviços Section */
 .servicos {
-    padding: var(--spacing-3xl) var(--spacing-md);
+    padding: var(--spacing-2xl) var(--spacing-md);
     background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     background-image:
         linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%),
@@ -658,7 +661,6 @@ a:hover {
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.8);
 }
@@ -811,7 +813,7 @@ a:hover {
     }
 
     .hero::before {
-        background-size: auto 250%;
+        background-size: auto 70%;
     }
 
     .hero-title {
@@ -1018,6 +1020,10 @@ a:hover {
     font-weight: 700;
     color: var(--accent-red);
     margin: 0;
+}
+
+[data-theme="dark"] .servico-adicional-card .preco {
+    color: var(--white);
 }
 
 .btn-small {

@@ -168,15 +168,23 @@ function initMobileMenu() {
 
     if (!navToggle || !navMenu) return;
 
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         navMenu.classList.toggle('active');
     });
 
     // Close menu when link clicked
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+    navMenu.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', () => {
             navMenu.classList.remove('active');
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav')) {
+            navMenu.classList.remove('active');
+        }
     });
 }
 
