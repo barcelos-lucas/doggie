@@ -85,55 +85,70 @@ function getWhatsAppUrl(msg) {
 }
 
 function detectSystemTheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-    }
-    return 'light';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 function getStoredTheme() {
     return localStorage.getItem('theme-preference');
 }
 
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme-preference', theme);
-    updateThemeToggleIcon(theme);
+function applyTheme(preference) {
+    const resolved = preference === 'system' ? detectSystemTheme() : preference;
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.setAttribute('data-user-theme', preference);
+    updateDropdownState(preference);
 }
 
-function updateThemeToggleIcon() {
-    // Icons handled via CSS [data-theme="dark"] selectors — no JS update needed
+function setTheme(preference) {
+    localStorage.setItem('theme-preference', preference);
+    applyTheme(preference);
 }
+
+function updateDropdownState(preference) {
+    document.querySelectorAll('.td-option').forEach(btn => {
+        btn.setAttribute('data-active', btn.dataset.theme === preference ? 'true' : 'false');
+    });
+}
+
+function updateThemeToggleIcon() {}
 
 function initThemeToggle() {
-    const storedTheme = getStoredTheme();
-    const theme = storedTheme || detectSystemTheme();
+    const stored = getStoredTheme() || 'system';
+    applyTheme(stored);
 
-    setTheme(theme);
+    // Dropdown trigger
+    const trigger = document.getElementById('themeDropdownTrigger');
+    const menu = document.getElementById('themeDropdownMenu');
 
-    const toggleTheme = () => {
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        const newTheme = current === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-    };
+    if (trigger && menu) {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = menu.classList.contains('open');
+            menu.classList.toggle('open', !isOpen);
+            trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
 
-    const toggleFloat = document.getElementById('themeToggleFloat');
-    const toggleMobile = document.getElementById('themeToggleMobile');
+        menu.querySelectorAll('.td-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setTheme(btn.dataset.theme);
+                menu.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            });
+        });
 
-    if (toggleFloat) {
-        toggleFloat.addEventListener('click', toggleTheme);
-    }
-    if (toggleMobile) {
-        toggleMobile.addEventListener('click', toggleTheme);
-    }
-
-    // Listen for system theme changes
-    if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!getStoredTheme()) {
-                const newTheme = e.matches ? 'dark' : 'light';
-                setTheme(newTheme);
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.theme-dropdown')) {
+                menu.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
             }
+        });
+    }
+
+    // System theme change listener
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            const pref = getStoredTheme() || 'system';
+            if (pref === 'system') applyTheme('system');
         });
     }
 }
