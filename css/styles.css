@@ -619,16 +619,22 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: 10px var(--spacing-md);
     transition: padding 0.4s ease;
 }
 
 .header.scrolled .container {
-    padding: 8px var(--spacing-md);
+    padding: 5px var(--spacing-md);
+}
+
+.logo-img {
+    height: 58px;
+    width: auto;
+    transition: height 0.4s ease;
 }
 
 .header.scrolled .logo-img {
-    height: 46px;
+    height: 36px;
 }
 
 .header.scrolled .nav-menu a {
