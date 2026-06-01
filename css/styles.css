@@ -347,7 +347,7 @@ a:hover {
 }
 
 .footer-col p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: var(--spacing-sm);
     font-size: var(--font-size-base);
 }
@@ -358,7 +358,7 @@ a:hover {
 }
 
 .footer-col a:hover {
-    color: var(--gray-100);
+    color: var(--accent-gold);
 }
 
 .footer-bottom {
@@ -389,12 +389,12 @@ a:hover {
     transition: all 0.3s ease;
     z-index: var(--z-floating);
     text-decoration: none;
-    gap: 4px;
+    gap: var(--spacing-xs);
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    background-color: #20ba5a;
+    background-color: var(--whatsapp);
 }
 
 .whatsapp-icon {
@@ -445,7 +445,7 @@ a:hover {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: var(--font-size-3xl);
     }
 
     .hero-subtitle {
