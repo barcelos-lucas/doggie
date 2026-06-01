@@ -162,6 +162,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .theme-toggle-mobile {
+    display: none;
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -175,6 +176,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .theme-toggle-mobile:hover {
     transform: rotate(20deg);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle-mobile {
+        display: block;
+    }
 }
 
 h1 {
@@ -762,9 +769,9 @@ a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
+        display: none !important;
+        position: fixed;
+        top: 90px;
         left: 0;
         right: 0;
         flex-direction: column;
@@ -773,12 +780,14 @@ a:hover {
         gap: 0;
         padding: var(--spacing-md) 0;
         z-index: 100;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
+        width: 100%;
+        margin: 0;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
-        display: flex;
+        display: flex !important;
     }
 
     .nav-menu li {
