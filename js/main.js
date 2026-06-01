@@ -43,6 +43,7 @@ function getWhatsAppUrl(msg) {
 
 function renderServicos() {
     const grid = document.getElementById('servicosGrid');
+    if (!grid) return;
 
     grid.innerHTML = servicos.map(s => `
         <a href="${getWhatsAppUrl(s.whatsappMsg)}"
