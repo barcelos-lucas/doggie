@@ -53,33 +53,54 @@
                 <img src="assets/logo-transparente.png" alt="Doggie Estética Animal" class="logo-img">
             </div>
             <nav class="nav">
-                <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
                 <ul class="nav-menu">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#footer">Contato</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Mobile Sidebar Menu -->
     <aside class="sidebar-menu" id="sidebarMenu">
-        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">✕</button>
+        <div class="sidebar-header">
+            <img src="assets/logo-transparente.png" alt="Doggie" class="sidebar-logo">
+            <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#footer">Contato</a></li>
-                <li class="sidebar-theme-toggle">
-                    <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Alternar tema">🌙</button>
-                </li>
+                <li><a href="#hero"><span class="sidebar-num">01</span>Home</a></li>
+                <li><a href="#sobre"><span class="sidebar-num">02</span>Sobre</a></li>
+                <li><a href="#servicos"><span class="sidebar-num">03</span>Serviços</a></li>
+                <li><a href="#footer"><span class="sidebar-num">04</span>Contato</a></li>
             </ul>
         </nav>
+        <div class="sidebar-footer">
+            <p>Doggie Estética Animal</p>
+        </div>
     </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -155,7 +176,18 @@
     </footer>
 
     <!-- Floating Action Buttons -->
-    <button class="theme-toggle-float" id="themeToggleFloat" aria-label="Alternar tema">🌙</button>
+    <button class="theme-toggle-float" id="themeToggleFloat" aria-label="Alternar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
     <a href="https://wa.me/5519999791812?text=Oi%20tia%20bia%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20servi%C3%A7o"
        target="_blank"
        rel="noopener noreferrer"

@@ -101,17 +101,8 @@ function setTheme(theme) {
     updateThemeToggleIcon(theme);
 }
 
-function updateThemeToggleIcon(theme) {
-    const toggleFloat = document.getElementById('themeToggleFloat');
-    const toggleMobile = document.getElementById('themeToggleMobile');
-    const icon = theme === 'dark' ? '☀️' : '🌙';
-
-    if (toggleFloat) {
-        toggleFloat.textContent = icon;
-    }
-    if (toggleMobile) {
-        toggleMobile.textContent = icon;
-    }
+function updateThemeToggleIcon() {
+    // Icons handled via CSS [data-theme="dark"] selectors — no JS update needed
 }
 
 function initThemeToggle() {
@@ -151,30 +142,34 @@ function initMobileMenu() {
     const navToggle = document.getElementById('navToggle');
     const sidebarMenu = document.getElementById('sidebarMenu');
     const sidebarClose = document.getElementById('sidebarClose');
+    const overlay = document.getElementById('sidebarOverlay');
 
     if (!navToggle || !sidebarMenu) return;
 
+    function openSidebar() {
+        sidebarMenu.classList.add('active');
+        navToggle.classList.add('open');
+        if (overlay) overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebarMenu.classList.remove('active');
+        navToggle.classList.remove('open');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
     navToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        sidebarMenu.classList.toggle('active');
+        sidebarMenu.classList.contains('active') ? closeSidebar() : openSidebar();
     });
 
-    sidebarClose.addEventListener('click', () => {
-        sidebarMenu.classList.remove('active');
-    });
+    if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
 
-    // Close menu when link clicked
     sidebarMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            sidebarMenu.classList.remove('active');
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.sidebar-menu') && !e.target.closest('.nav-toggle')) {
-            sidebarMenu.classList.remove('active');
-        }
+        link.addEventListener('click', closeSidebar);
     });
 }
 
