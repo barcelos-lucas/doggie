@@ -134,10 +134,28 @@ function initThemeToggle() {
     }
 }
 
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        lastScrollTop = scrollTop;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     renderPacotes();
     renderServicosAdicionais();
+    initHeaderScroll();
 });
 
 function renderPacotes() {
