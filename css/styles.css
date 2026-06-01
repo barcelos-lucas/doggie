@@ -542,41 +542,72 @@ a:hover {
     box-shadow: 0 12px 28px rgba(212, 184, 150, 0.5);
 }
 
-/* Header — glass over hero, solid on scroll */
+/* Header — glassmorphism over hero */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: var(--z-nav);
-    background: transparent;
+    /* true glass: hero image bleeds through */
+    background: rgba(10, 8, 6, 0.25);
+    backdrop-filter: blur(18px) saturate(160%) brightness(0.85);
+    -webkit-backdrop-filter: blur(18px) saturate(160%) brightness(0.85);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(0px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.25);
     width: 100%;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease,
-                border-color 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease;
+    transition: background 0.5s ease, backdrop-filter 0.5s ease,
+                box-shadow 0.5s ease, padding 0.4s ease;
 }
 
-/* Glass phase — over hero */
+/* subtle warm tint on glass inner edge */
+.header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(200, 90, 84, 0.08) 0%,
+        rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+/* nav links — white over dark glass */
 .header:not(.scrolled) .nav-menu a {
-    color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    font-weight: 500;
+}
+
+.header:not(.scrolled) .nav-menu a:hover {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(200,90,84,0.7);
 }
 
 .header:not(.scrolled) .nav-toggle span {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Solid phase — after scroll */
+/* Solid phase — after leaving hero */
 .header.scrolled {
     background: var(--card-bg);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
     border-bottom: 2px solid var(--primary);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-    backdrop-filter: blur(12px);
+}
+
+.header.scrolled::after {
+    display: none;
 }
 
 .header.scrolled .nav-menu a {
     color: var(--gray-700);
+    text-shadow: none;
+    font-weight: 500;
+}
+
+.header.scrolled .nav-menu a:hover {
+    color: var(--primary);
     text-shadow: none;
 }
 
@@ -589,7 +620,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-lg) var(--spacing-md);
-    transition: padding 0.35s ease;
+    transition: padding 0.4s ease;
 }
 
 .header.scrolled .container {
