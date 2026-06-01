@@ -1316,7 +1316,7 @@ body::before {
     z-index: 0;
 }
 
-.header, .hero, .sobre, .servicos, .footer {
+.hero, .sobre, .servicos, .footer {
     position: relative;
     z-index: 1;
 }
