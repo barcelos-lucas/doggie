@@ -53,9 +53,9 @@ function renderServicos() {
             <div class="servico-porte">${s.porte}</div>
             <div class="servico-nome">${s.servico}</div>
             <div class="servico-preco">${s.preco}</div>
-            <button class="servico-btn">
+            <div class="servico-btn">
                 Agendar
-            </button>
+            </div>
         </a>
     `).join('');
 }
