@@ -721,6 +721,7 @@ a:hover {
     margin-bottom: var(--spacing-2xl);
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
+    animation: slideUp 0.6s ease var(--animation-delay, 0s);
 }
 
 .tamanho-pacote-card:hover {
@@ -884,4 +885,30 @@ body::before {
 .header, .hero, .sobre, .servicos, .footer {
     position: relative;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .pacote-comparison-table {
+        font-size: 12px;
+    }
+
+    .pacote-comparison-table th,
+    .pacote-comparison-table td {
+        padding: var(--spacing-sm);
+    }
+
+    .agendar-btn {
+        padding: var(--spacing-lg);
+        font-size: 16px;
+    }
+
+    .tamanho-pacote-card {
+        padding: var(--spacing-lg);
+    }
+
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
 }
