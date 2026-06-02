@@ -971,21 +971,27 @@ p.hero-description {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-.hero-btn-icon svg,
+.hero-btn-icon-wrap {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hero-btn-icon-wrap svg,
 .hero-btn-svg {
     width: 18px;
     height: 18px;
-    flex-shrink: 0;
+    display: block;
 }
 
 .hero-btn-svg {
     filter: brightness(0) invert(1);
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
 }
 
 .hero .btn {
