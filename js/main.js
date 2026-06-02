@@ -162,6 +162,13 @@ function initMobileMenu() {
     if (!navToggle || !sidebarMenu) return;
 
     function openSidebar() {
+        const header = document.querySelector('.header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        sidebarMenu.style.top = headerHeight + 'px';
+        sidebarMenu.style.height = `calc(100vh - ${headerHeight}px)`;
+        if (overlay) {
+            overlay.style.top = headerHeight + 'px';
+        }
         sidebarMenu.classList.add('active');
         navToggle.classList.add('open');
         if (overlay) overlay.classList.add('active');
