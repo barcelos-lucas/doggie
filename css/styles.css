@@ -1460,6 +1460,7 @@ p.hero-description {
 .tamanho-pacote-card {
     background-color: var(--card-bg);
     border-radius: 12px;
+    border: 1px solid var(--primary);
     padding: var(--spacing-2xl);
     margin-bottom: var(--spacing-2xl);
     box-shadow: var(--card-shadow);
