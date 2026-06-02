@@ -759,38 +759,40 @@ a:hover {
 
 .hero-subtitle {
     font-size: var(--font-size-xl);
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 4px;
+    font-weight: 500;
     position: relative;
     z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: nowrap;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
 }
 
-/* Animated word cycle */
+/* Animated word cycle — standalone block, full visibility */
 .hero-word-cycle {
-    display: inline-block;
+    display: block;
     position: relative;
-    height: 1.6em;
-    min-width: 200px;
+    height: 1.4em;
     overflow: hidden;
-    vertical-align: bottom;
+    margin: 0 auto var(--spacing-lg);
+    z-index: 2;
 }
 
 .hero-word {
     position: absolute;
     left: 0;
     right: 0;
-    text-align: left;
+    text-align: center;
     color: #f0b89a;
     font-style: italic;
-    font-size: 1.35em;
+    font-size: clamp(2.8rem, 7vw, 5rem);
     font-weight: 700;
-    text-shadow: 0 2px 20px rgba(200, 90, 84, 0.5), 0 0 40px rgba(200, 90, 84, 0.25);
+    font-family: var(--font-display);
+    line-height: 1.2;
+    text-shadow: 0 4px 24px rgba(200, 90, 84, 0.55), 0 0 60px rgba(200, 90, 84, 0.2);
     opacity: 0;
     transform: translateY(100%);
     transition: none;
@@ -823,13 +825,13 @@ a:hover {
 
 .hero-description {
     font-size: var(--font-size-xl);
-    color: rgba(255, 255, 255, 1);
+    color: #ffffff;
     margin-bottom: var(--spacing-2xl);
     position: relative;
     z-index: 2;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
 }
 
 .hero .btn {
