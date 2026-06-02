@@ -803,6 +803,21 @@ a:hover {
     overflow: hidden;
     margin: 0 auto var(--spacing-lg);
     z-index: 2;
+    /* feather clip edges — no hard border artifact */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 18%,
+        black 82%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 18%,
+        black 82%,
+        transparent 100%
+    );
 }
 
 .hero-word {
