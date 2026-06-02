@@ -719,7 +719,7 @@ a:hover {
 }
 
 .header.scrolled .container {
-    padding: 5px var(--spacing-md);
+    padding: 10px var(--spacing-md);
 }
 
 .logo-img {
@@ -729,7 +729,7 @@ a:hover {
 }
 
 .header.scrolled .logo-img {
-    height: 36px;
+    height: 46px;
 }
 
 .header.scrolled .nav-menu a {
