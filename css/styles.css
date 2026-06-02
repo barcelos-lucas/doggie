@@ -775,7 +775,7 @@ a:hover {
 .hero-word-cycle {
     display: block;
     position: relative;
-    height: 1.4em;
+    height: clamp(4rem, 9vw, 7rem);
     overflow: hidden;
     margin: 0 auto var(--spacing-lg);
     z-index: 2;
