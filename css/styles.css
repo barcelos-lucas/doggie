@@ -417,6 +417,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
     background: none;
     border: none;
     cursor: pointer;
@@ -443,7 +446,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sidebar-nav {
     flex: 1;
-    padding: var(--spacing-xl) 0;
+    padding: calc(var(--spacing-xl) + 44px) 0 var(--spacing-xl);
 }
 
 .sidebar-nav ul {
