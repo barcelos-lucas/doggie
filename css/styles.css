@@ -821,6 +821,11 @@ a:hover {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+.hero .hero-description,
+p.hero-description {
+    color: #ffffff !important;
+}
+
 .hero-description {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: #ffffff !important;
