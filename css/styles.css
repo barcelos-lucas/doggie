@@ -754,7 +754,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.72);
+    background: rgba(0, 0, 0, 0.82);
 }
 
 .hero::before {
@@ -766,7 +766,7 @@ a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    filter: blur(5px);
+    filter: blur(10px);
     z-index: -1;
 }
 
