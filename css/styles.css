@@ -223,13 +223,13 @@ h1, h2, h3, h4, h5, h6 {
 [data-user-theme="system"] .td-icon-sun  { display: none !important; }
 [data-user-theme="system"] .td-icon-moon { display: none !important; }
 
-/* Dropdown Menu */
+/* Dropdown Menu — always opaque background, text always readable */
 .theme-dropdown-menu {
     position: absolute;
     bottom: calc(100% + 10px);
     right: 0;
-    background-color: var(--card-bg);
-    border: 1px solid var(--gray-200);
+    background-color: #ffffff;
+    border: 1px solid #e7e5e0;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     padding: 6px;
@@ -259,7 +259,16 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--gray-900) !important;
+    color: #2a2825 !important;
+}
+
+[data-theme="dark"] .td-option {
+    color: #f5f3f0 !important;
+}
+
+[data-theme="dark"] .theme-dropdown-menu {
+    background-color: #2a2825;
+    border-color: #4a4743;
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 500;
@@ -542,63 +551,29 @@ a:hover {
     box-shadow: 0 12px 28px rgba(212, 184, 150, 0.5);
 }
 
-/* Header — Liquid Glass (Apple iOS 26 / visionOS style) */
+/* Header — glassmorphism over hero */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: var(--z-nav);
-    /* liquid glass: translucent, colours bleed through richly */
-    background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.10) 0%,
-        rgba(255, 255, 255, 0.04) 50%,
-        rgba(255, 255, 255, 0.08) 100%
-    );
-    backdrop-filter: blur(40px) saturate(200%) brightness(1.1) contrast(1.05);
-    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.1) contrast(1.05);
-    /* glass edges: inset shadows simulate refraction + physical depth */
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.35),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.10),
-        inset 1px 0 0 rgba(255, 255, 255, 0.12),
-        inset -1px 0 0 rgba(255, 255, 255, 0.12),
-        0 8px 40px rgba(0, 0, 0, 0.28),
-        0 2px 8px rgba(0, 0, 0, 0.12);
+    background: rgba(10, 8, 6, 0.25);
+    backdrop-filter: blur(18px) saturate(160%) brightness(0.85);
+    -webkit-backdrop-filter: blur(18px) saturate(160%) brightness(0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.25);
     width: 100%;
-    overflow: hidden;
     transition: background 0.5s ease, backdrop-filter 0.5s ease,
                 box-shadow 0.5s ease, padding 0.4s ease;
 }
 
-/* specular highlight — light hitting top surface of glass */
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(180deg,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.0) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* warm tint — brand colour refraction */
 .header::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 0%,
-        rgba(200, 90, 84, 0.10) 0%,
-        transparent 70%);
+    background: linear-gradient(180deg, rgba(200, 90, 84, 0.08) 0%, transparent 100%);
     pointer-events: none;
-    z-index: 0;
 }
 
 .header .container {
@@ -606,32 +581,29 @@ a:hover {
     z-index: 1;
 }
 
-/* nav links white over liquid glass */
 .header:not(.scrolled) .nav-menu a {
     color: rgba(255, 255, 255, 0.92);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
     font-weight: 500;
 }
 
 .header:not(.scrolled) .nav-menu a:hover {
     color: #fff;
-    text-shadow: 0 0 14px rgba(255, 200, 180, 0.6);
+    text-shadow: 0 0 12px rgba(200,90,84,0.7);
 }
 
 .header:not(.scrolled) .nav-toggle span {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Solid phase — past hero, no more liquid glass */
 .header.scrolled {
     background: var(--card-bg);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
     border-bottom: 2px solid var(--primary);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
-.header.scrolled::before,
 .header.scrolled::after {
     display: none;
 }
@@ -740,7 +712,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.72);
 }
 
 .hero::before {
@@ -754,7 +726,7 @@ a:hover {
     background-position: center 60%;
     background-size: 110%;
     background-attachment: fixed;
-    filter: blur(0px);
+    filter: blur(5px);
     z-index: -1;
 }
 
