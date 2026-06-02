@@ -188,6 +188,29 @@ function initMobileMenu() {
     });
 }
 
+function initHeroWordCycle() {
+    const words = document.querySelectorAll('.hero-word');
+    if (!words.length) return;
+
+    let current = 0;
+
+    setInterval(() => {
+        const prev = current;
+        current = (current + 1) % words.length;
+
+        words[prev].classList.remove('active');
+        words[prev].classList.add('exit');
+
+        setTimeout(() => {
+            words[prev].classList.remove('exit');
+        }, 400);
+
+        setTimeout(() => {
+            words[current].classList.add('active');
+        }, 300);
+    }, 2200);
+}
+
 function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -203,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderServicosAdicionais();
     initMobileMenu();
     initHeaderScroll();
+    initHeroWordCycle();
 });
 
 function renderPacotes() {

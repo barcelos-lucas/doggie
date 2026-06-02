@@ -302,7 +302,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .td-option:hover {
-    background-color: var(--bg-secondary);
+    background-color: rgba(200, 90, 84, 0.08);
+}
+
+[data-theme="dark"] .td-option:hover {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Sidebar Menu */
@@ -760,6 +764,57 @@ a:hover {
     font-weight: 600;
     position: relative;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+/* Animated word cycle */
+.hero-word-cycle {
+    display: inline-block;
+    position: relative;
+    height: 1.3em;
+    min-width: 160px;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+
+.hero-word {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: left;
+    color: var(--primary-light);
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: none;
+    white-space: nowrap;
+}
+
+.hero-word.active {
+    opacity: 1;
+    transform: translateY(0);
+    animation: wordIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-word.exit {
+    opacity: 1;
+    transform: translateY(0);
+    animation: wordOut 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
+
+@keyframes wordIn {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wordOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-100%); }
+}
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
