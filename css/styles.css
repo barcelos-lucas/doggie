@@ -925,9 +925,47 @@ p.hero-description {
     letter-spacing: 0.01em;
 }
 
-.hero .btn {
+.hero-btns {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
     animation: slideUp 0.8s ease 0.2s both;
+}
+
+.btn-hero-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.btn-hero-outline svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-hero-outline:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.hero .btn {
+    margin-top: 0;
     position: relative;
     z-index: 2;
     display: inline-block;
