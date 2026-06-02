@@ -1090,6 +1090,7 @@ p.hero-description {
 .servico-adicional-card {
     background-color: var(--white);
     border-radius: var(--radius-lg);
+    border: 1px solid var(--primary);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
@@ -1579,6 +1580,7 @@ p.hero-description {
     background-color: var(--card-bg);
     padding: var(--spacing-xl);
     border-radius: 12px;
+    border: 1px solid var(--primary);
     box-shadow: var(--card-shadow);
     text-decoration: none;
     color: var(--text-primary);
