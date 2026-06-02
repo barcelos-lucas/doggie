@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doggie Estética Animal - Banho, tosa e estética para cães em São Bernardo do Campo">
+    <meta name="keywords" content="banho, tosa, estética animal, cães, São Bernardo do Campo">
+    <title>Doggie Estética Animal | Banho e Tosa de Cães</title>
+
+    <!-- Schema.org Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Doggie Estética Animal",
+        "image": "assets/logo-transparente.png",
+        "description": "Centro de estética animal especializado em banho, tosa e cuidados com cães",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Heitor de Souza, 190",
+            "addressLocality": "São Bernardo do Campo",
+            "addressRegion": "SP",
+            "addressCountry": "BR",
+            "postalCode": "09000-000"
+        },
+        "telephone": "+5519999791812",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "07:00",
+                "closes": "12:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "13:00",
+                "closes": "18:00"
+            }
+        ],
+        "sameAs": "https://www.instagram.com/doggie.esteticapet"
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/doggie-favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero" aria-label="Início">
+                    <img src="assets/logo-transparente.png" alt="Doggie Estética Animal" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#hero">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Home
+                    </a></li>
+                    <li><a href="#sobre">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        Sobre
+                    </a></li>
+                    <li><a href="#servicos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        Serviços
+                    </a></li>
+                    <li><a href="#footer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Contato
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <aside class="sidebar-menu" id="sidebarMenu">
+        <button class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#hero">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </a></li>
+                <li><a href="#sobre">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Sobre
+                </a></li>
+                <li><a href="#servicos">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    Serviços
+                </a></li>
+                <li><a href="#footer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Contato
+                </a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1 class="hero-title">Doggie Estética Animal</h1>
+            <p class="hero-subtitle">Cuidado com</p>
+            <div class="hero-word-cycle" id="heroWordCycle">
+                <span class="hero-word active">carinho</span>
+                <span class="hero-word">amor</span>
+                <span class="hero-word">segurança</span>
+                <span class="hero-word">dedicação</span>
+                <span class="hero-word">atenção</span>
+            </div>
+            <p class="hero-description">Porque seu pet merece ser tratado com o mesmo amor e atenção que recebe em casa.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/5519999791812?text=Oi%20tia%20bia%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20servi%C3%A7o" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn">
+                    <img src="assets/whatsapp.svg" alt="" class="hero-btn-svg">
+                    Agendar Serviço
+                </a>
+                <a href="https://www.google.com/maps/dir//R.+Heitor+de+Souza,+190+-+Assun%C3%A7%C3%A3o,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09811-300/@-23.7275316,-46.5593612,17z/data=!4m18!1m8!3m7!1s0x94ce4175b0c41327:0xc6b65247c96c1771!2sR.+Heitor+de+Souza,+190+-+Assun%C3%A7%C3%A3o,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09811-300!3b1!8m2!3d-23.7275365!4d-46.5567863!16s%2Fg%2F11snnyk6r4!4m8!1m0!1m5!1m1!1s0x94ce4175b0c41327:0xc6b65247c96c1771!2m2!1d-46.5567863!2d-23.7275365!3e0?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Venha até nós
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h3>Doggie Estética Animal</h3>
+                    <p>Centro especializado em banho, tosa e estética para cães, com foco em segurança, conforto e profissionalismo.</p>
+                    <h4>Nossa Missão</h4>
+                    <p>Oferecer cuidado de qualidade superior para cada pet, respeitando suas necessidades individuais e garantindo uma experiência tranquila e segura.</p>
+                    <h4>Nossos Valores</h4>
+                    <ul class="values-list">
+                        <li>Respeito e cuidado com cada animal</li>
+                        <li>Profissionalismo e excelência</li>
+                        <li>Segurança e higiene rigorosa</li>
+                        <li>Atendimento personalizado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <h2>Planos e Preços</h2>
+
+            <div class="pacotes-container" id="pacotesContainer">
+                <!-- Generated by JavaScript: tamanho cards with internal package comparison -->
+            </div>
+
+            <!-- Serviços Adicionais -->
+            <h3 class="servicos-subtitle">Serviços Adicionais</h3>
+            <div class="servicos-adicional" id="servicosAdicionalGrid">
+                <!-- Generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Horários</h3>
+                    <p>Segunda a Sexta<br>7h - 12h · 13h - 18h</p>
+                    <a href="https://wa.me/5519999791812?text=Oi%2C%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener noreferrer" class="footer-btn">
+                        <img src="assets/whatsapp.svg" alt="" class="footer-btn-icon">
+                        Agendar Horário
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h3>Endereço</h3>
+                    <p>Rua Heitor de Souza, 190<br>São Bernardo do Campo - SP</p>
+                    <a href="https://www.google.com/maps/dir//R.+Heitor+de+Souza,+190+-+Assun%C3%A7%C3%A3o,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09811-300/@-23.7275316,-46.5593612,17z/data=!4m18!1m8!3m7!1s0x94ce4175b0c41327:0xc6b65247c96c1771!2sR.+Heitor+de+Souza,+190+-+Assun%C3%A7%C3%A3o,+S%C3%A3o+Bernardo+do+Campo+-+SP,+09811-300!3b1!8m2!3d-23.7275365!4d-46.5567863!16s%2Fg%2F11snnyk6r4!4m8!1m0!1m5!1m1!1s0x94ce4175b0c41327:0xc6b65247c96c1771!2m2!1d-46.5567863!2d-23.7275365!3e0?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="footer-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Ir até lá
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <a href="https://wa.me/5519999791812" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                        <img src="assets/whatsapp.svg" alt="WhatsApp" class="footer-contact-icon">
+                        <span>(19) 99979-1812</span>
+                    </a>
+                    <a href="https://www.instagram.com/doggie.esteticapet" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <span>@doggie.esteticapet</span>
+                    </a>
+                    <a href="https://www.instagram.com/tiabiatosadora/" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <span>@tiabiatosadora</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Doggie Estética Animal. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Stack -->
+    <div class="float-stack">
+        <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"/>
+            </svg>
+        </button>
+        <!-- Theme Dropdown -->
+        <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-dropdown-trigger" id="themeDropdownTrigger" aria-label="Alternar tema" aria-expanded="false">
+                <svg class="td-icon td-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="td-icon td-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="td-icon td-icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+            </button>
+            <div class="theme-dropdown-menu" id="themeDropdownMenu" role="menu">
+                <button class="td-option" data-theme="light" role="menuitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <span>Claro</span>
+                    <svg class="td-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+                <button class="td-option" data-theme="dark" role="menuitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <span>Escuro</span>
+                    <svg class="td-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+                <button class="td-option" data-theme="system" role="menuitem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    <span>Sistema</span>
+                    <svg class="td-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5519999791812?text=Oi%20tia%20bia%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20servi%C3%A7o"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="whatsapp-float"
+           aria-label="Agendar via WhatsApp">
+            <img src="assets/whatsapp.svg" alt="WhatsApp" class="whatsapp-icon">
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
