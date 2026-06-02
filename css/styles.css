@@ -1647,11 +1647,13 @@ p.hero-description {
 }
 
 .servicos-subtitle {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--primary);
     margin-top: var(--spacing-3xl);
     margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-family: var(--font-display);
 }
 
 .servicos-adicional {
@@ -1663,7 +1665,7 @@ p.hero-description {
 
 .servico-adicional-card {
     background-color: var(--card-bg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-2xl);
     border-radius: 12px;
     border: 1px solid var(--primary);
     box-shadow: var(--card-shadow);
@@ -1673,6 +1675,7 @@ p.hero-description {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    animation: slideUp 0.6s ease var(--animation-delay, 0s);
 }
 
 .servico-adicional-card:hover {
@@ -1682,7 +1685,10 @@ p.hero-description {
 
 .servico-adicional-card h4 {
     color: var(--primary);
-    font-size: 18px;
+    font-size: var(--font-size-xl);
+    font-family: var(--font-display);
+    font-weight: 600;
+    margin-bottom: 0;
 }
 
 [data-theme="dark"] .servico-adicional-card h4 {
@@ -1690,10 +1696,11 @@ p.hero-description {
 }
 
 .servico-adicional-card .preco {
-    font-size: 20px;
+    font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--accent-red);
+    color: var(--primary);
     margin: 0;
+    font-family: var(--font-display);
 }
 
 [data-theme="dark"] .servico-adicional-card .preco {
