@@ -213,11 +213,24 @@ function initHeroWordCycle() {
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
+    const backToTop = document.getElementById('backToTop');
+    const hero = document.getElementById('hero');
     if (!header) return;
 
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 80);
+
+        if (backToTop && hero) {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            backToTop.classList.toggle('visible', window.scrollY > heroBottom - 100);
+        }
     }, { passive: true });
+
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
