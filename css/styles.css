@@ -934,6 +934,13 @@ p.hero-description {
     position: relative;
     z-index: 2;
     animation: slideUp 0.8s ease 0.2s both;
+    width: 100%;
+}
+
+.hero-btns .btn {
+    flex: 1 1 auto;
+    min-width: 160px;
+    max-width: 220px;
 }
 
 .hero-btn-icon {
