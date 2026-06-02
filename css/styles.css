@@ -727,8 +727,9 @@ a:hover {
     right: 0;
     bottom: 0;
     background-image: url('../assets/logo-hero.png');
-    background-position: center 60%;
-    background-size: 55%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     filter: blur(5px);
     z-index: -1;
