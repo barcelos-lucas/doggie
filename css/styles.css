@@ -939,6 +939,7 @@ p.hero-description {
 .hero-btn-icon {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -950,7 +951,7 @@ p.hero-description {
 }
 
 .hero-btn-svg {
-    filter: brightness(0) invert(1);
+    filter: brightness(0);
 }
 
 .hero .btn {
