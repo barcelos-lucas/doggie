@@ -1141,14 +1141,15 @@ p.hero-description {
     gap: 8px;
     margin-top: var(--spacing-md);
     padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 8px;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-size: var(--font-size-sm);
     font-weight: 600;
     transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
 }
 
 .footer-btn svg,
@@ -1163,19 +1164,10 @@ p.hero-description {
 }
 
 .footer-btn:hover {
-    background-color: rgba(255, 255, 255, 0.22);
-    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.20);
+    border-color: rgba(255, 255, 255, 0.45);
     color: #ffffff;
     transform: translateY(-2px);
-}
-
-.footer-btn-outline {
-    background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.footer-btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer-contact-link {
