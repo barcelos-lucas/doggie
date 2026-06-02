@@ -757,12 +757,19 @@ a:hover {
 }
 
 .nav-menu a {
-    color: var(--gray-700);
+    color: rgba(255, 255, 255, 0.92);
     font-weight: 500;
-    transition: color 0.3s ease, gap 0.3s ease;
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-size: 14px;
 }
 
 .nav-menu a svg {
@@ -774,7 +781,9 @@ a:hover {
 }
 
 .nav-menu a:hover {
-    color: var(--primary);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .nav-menu a:hover svg {
