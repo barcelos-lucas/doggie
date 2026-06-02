@@ -754,20 +754,45 @@ a:hover {
     font-family: var(--font-display);
     position: relative;
     z-index: 2;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     font-weight: 700;
+    letter-spacing: 0.03em;
+    /* subtle shimmer on title */
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 50%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleShimmer 5s linear infinite;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+@keyframes titleShimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+    animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.1s both, titleShimmer 5s linear 1s infinite;
 }
 
 .hero-subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.78);
     margin-bottom: 4px;
-    font-weight: 600;
+    font-weight: 400;
     position: relative;
     z-index: 2;
     text-align: center;
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.35s both;
 }
 
 /* Animated word cycle — standalone block, full visibility */
@@ -785,13 +810,17 @@ a:hover {
     left: 0;
     right: 0;
     text-align: center;
-    color: #f0b89a;
+    color: #ffffff;
     font-style: italic;
     font-size: clamp(2.8rem, 7vw, 5rem);
     font-weight: 700;
     font-family: var(--font-display);
     line-height: 1.2;
-    text-shadow: 0 4px 24px rgba(200, 90, 84, 0.55), 0 0 60px rgba(200, 90, 84, 0.2);
+    text-shadow:
+        0 0 12px rgba(220, 80, 70, 0.95),
+        0 0 28px rgba(220, 80, 70, 0.65),
+        0 0 60px rgba(220, 80, 70, 0.35),
+        0 2px 6px rgba(0, 0, 0, 0.4);
     opacity: 0;
     transform: translateY(100%);
     transition: none;
@@ -828,8 +857,9 @@ p.hero-description {
 }
 
 .hero-description {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
     color: #ffffff !important;
+    animation: heroFadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.55s both;
     margin-bottom: var(--spacing-2xl);
     position: relative;
     z-index: 2;
