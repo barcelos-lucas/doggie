@@ -714,22 +714,22 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px var(--spacing-md);
+    padding: 6px var(--spacing-md);
     transition: padding 0.4s ease;
 }
 
 .header.scrolled .container {
-    padding: 5px var(--spacing-md);
+    padding: 4px var(--spacing-md);
 }
 
 .logo-img {
-    height: 58px;
+    height: 34px;
     width: auto;
     transition: height 0.4s ease;
 }
 
 .header.scrolled .logo-img {
-    height: 36px;
+    height: 26px;
 }
 
 .header.scrolled .nav-menu a {
