@@ -775,8 +775,8 @@ a:hover {
 .hero-word-cycle {
     display: inline-block;
     position: relative;
-    height: 1.3em;
-    min-width: 160px;
+    height: 1.6em;
+    min-width: 200px;
     overflow: hidden;
     vertical-align: bottom;
 }
@@ -786,8 +786,11 @@ a:hover {
     left: 0;
     right: 0;
     text-align: left;
-    color: var(--primary-light);
+    color: #f0b89a;
     font-style: italic;
+    font-size: 1.35em;
+    font-weight: 700;
+    text-shadow: 0 2px 20px rgba(200, 90, 84, 0.5), 0 0 40px rgba(200, 90, 84, 0.25);
     opacity: 0;
     transform: translateY(100%);
     transition: none;
@@ -819,13 +822,14 @@ a:hover {
 }
 
 .hero-description {
-    font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--font-size-xl);
+    color: rgba(255, 255, 255, 1);
     margin-bottom: var(--spacing-2xl);
     position: relative;
     z-index: 2;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .hero .btn {
