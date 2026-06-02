@@ -1127,10 +1127,40 @@ p.hero-description {
 
 .footer-col a {
     color: var(--white);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .footer-col a:hover {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.footer-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: var(--font-size-sm);
+}
+
+.footer-contact-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.footer-contact-link:hover svg {
+    opacity: 1;
     color: var(--accent-gold);
 }
 
